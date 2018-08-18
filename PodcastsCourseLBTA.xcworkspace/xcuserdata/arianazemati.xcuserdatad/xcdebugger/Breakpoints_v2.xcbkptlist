@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PodcastsCourseLBTA/Controllers/EpisodesController.swift"
-            timestampString = "555768994.374045"
+            timestampString = "556248396.277488"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PodcastsCourseLBTA/Views/PlayerDetailsView.swift"
-            timestampString = "555768994.3742189"
+            timestampString = "556248396.277557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "deinit"
             landmarkType = "7">
          </BreakpointContent>

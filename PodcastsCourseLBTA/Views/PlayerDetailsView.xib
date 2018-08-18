@@ -17,6 +17,52 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goe-T2-UYA">
+                    <rect key="frame" x="0.0" y="44" width="375" height="64"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MMY-oQ-Ifc">
+                            <rect key="frame" x="8" y="8" width="359" height="48"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon" translatesAutoresizingMaskIntoConstraints="NO" id="C8Z-iM-zcp">
+                                    <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="eBQ-4K-XMf"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHS-lg-2gK">
+                                    <rect key="frame" x="56" y="0.0" width="191" height="48"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqI-OL-lp5">
+                                    <rect key="frame" x="255" y="0.0" width="48" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="t2a-cV-LQw"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Button" image="pause"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiL-vd-akr">
+                                    <rect key="frame" x="311" y="0.0" width="48" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="48" id="gbr-rQ-ad7"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Button" image="fastforward15"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="MMY-oQ-Ifc" secondAttribute="trailing" constant="8" id="BWE-vV-nDO"/>
+                        <constraint firstItem="MMY-oQ-Ifc" firstAttribute="top" secondItem="goe-T2-UYA" secondAttribute="top" constant="8" id="Iu1-p5-ZIU"/>
+                        <constraint firstItem="MMY-oQ-Ifc" firstAttribute="leading" secondItem="goe-T2-UYA" secondAttribute="leading" constant="8" id="c7X-TZ-rr5"/>
+                        <constraint firstAttribute="bottom" secondItem="MMY-oQ-Ifc" secondAttribute="bottom" constant="8" id="cjk-F0-n62"/>
+                        <constraint firstAttribute="height" constant="64" id="kwP-L4-YeY"/>
+                    </constraints>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eem-yE-Ovq">
                     <rect key="frame" x="24" y="44" width="327" height="710"/>
                     <subviews>
@@ -168,9 +214,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="v78-xM-rbe" firstAttribute="trailing" secondItem="goe-T2-UYA" secondAttribute="trailing" id="bQe-cO-ZnN"/>
                 <constraint firstItem="Eem-yE-Ovq" firstAttribute="top" secondItem="v78-xM-rbe" secondAttribute="top" id="eRO-dT-uaw"/>
                 <constraint firstItem="v78-xM-rbe" firstAttribute="bottom" secondItem="Eem-yE-Ovq" secondAttribute="bottom" constant="24" id="naq-lP-PT3"/>
                 <constraint firstItem="v78-xM-rbe" firstAttribute="trailing" secondItem="Eem-yE-Ovq" secondAttribute="trailing" constant="24" id="qly-8y-yL5"/>
+                <constraint firstItem="goe-T2-UYA" firstAttribute="leading" secondItem="v78-xM-rbe" secondAttribute="leading" id="s7h-rt-ry5"/>
+                <constraint firstItem="goe-T2-UYA" firstAttribute="top" secondItem="v78-xM-rbe" secondAttribute="top" id="utm-3K-ySG"/>
                 <constraint firstItem="Eem-yE-Ovq" firstAttribute="leading" secondItem="v78-xM-rbe" secondAttribute="leading" constant="24" id="wlV-Ou-0Lt"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="v78-xM-rbe"/>
@@ -180,6 +229,12 @@
                 <outlet property="currentTimeSlider" destination="Fl7-uU-9Dh" id="93y-yw-1bT"/>
                 <outlet property="durationLabel" destination="NIL-Yq-19P" id="T5E-ce-p0m"/>
                 <outlet property="episodeImageView" destination="SRS-cG-iXs" id="nQT-HB-6Lb"/>
+                <outlet property="maximizedStackView" destination="Eem-yE-Ovq" id="f5O-Ff-bSc"/>
+                <outlet property="miniEpisodeImageView" destination="C8Z-iM-zcp" id="R3c-ej-pmz"/>
+                <outlet property="miniFastForwardButton" destination="HiL-vd-akr" id="0gL-6b-sJ5"/>
+                <outlet property="miniPlayPauseButton" destination="aqI-OL-lp5" id="MbO-tq-yeC"/>
+                <outlet property="miniPlayerView" destination="goe-T2-UYA" id="kUh-Rm-tPX"/>
+                <outlet property="miniTitleLabel" destination="VHS-lg-2gK" id="F7w-SI-zga"/>
                 <outlet property="playPauseButton" destination="YMs-oT-kVK" id="svK-Wp-sVT"/>
                 <outlet property="titleLabel" destination="YAl-hd-BNT" id="1YD-r3-1Nn"/>
                 <outlet property="volumeSlider" destination="wGC-aj-wGm" id="xw6-7k-D5n"/>
@@ -192,6 +247,7 @@
         <image name="fastforward15" width="45" height="45"/>
         <image name="max_volume" width="32" height="32"/>
         <image name="muted_volume" width="32" height="32"/>
+        <image name="pause" width="57" height="57"/>
         <image name="play" width="59" height="59"/>
         <image name="rewind15" width="45" height="45"/>
     </resources>
