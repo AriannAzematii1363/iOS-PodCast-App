@@ -20,6 +20,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goe-T2-UYA">
                     <rect key="frame" x="0.0" y="44" width="375" height="64"/>
                     <subviews>
+                        <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWp-5m-7Xk">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.66666666666666663"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="C2y-lf-Wgr"/>
+                            </constraints>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MMY-oQ-Ifc">
                             <rect key="frame" x="8" y="8" width="359" height="48"/>
                             <subviews>
@@ -56,7 +63,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xWp-5m-7Xk" secondAttribute="trailing" id="6pU-0Z-NEm"/>
+                        <constraint firstItem="xWp-5m-7Xk" firstAttribute="top" secondItem="goe-T2-UYA" secondAttribute="top" id="AfR-wq-xqJ"/>
                         <constraint firstAttribute="trailing" secondItem="MMY-oQ-Ifc" secondAttribute="trailing" constant="8" id="BWE-vV-nDO"/>
+                        <constraint firstItem="xWp-5m-7Xk" firstAttribute="leading" secondItem="goe-T2-UYA" secondAttribute="leading" id="COl-XJ-SNI"/>
                         <constraint firstItem="MMY-oQ-Ifc" firstAttribute="top" secondItem="goe-T2-UYA" secondAttribute="top" constant="8" id="Iu1-p5-ZIU"/>
                         <constraint firstItem="MMY-oQ-Ifc" firstAttribute="leading" secondItem="goe-T2-UYA" secondAttribute="leading" constant="8" id="c7X-TZ-rr5"/>
                         <constraint firstAttribute="bottom" secondItem="MMY-oQ-Ifc" secondAttribute="bottom" constant="8" id="cjk-F0-n62"/>

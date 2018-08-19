@@ -26,18 +26,21 @@ class MainTabBarController: UITabBarController {
     
     func maximizePlayerDetails(episode: Episode?) {
         
+        minimizedTopAnchorConstraint.isActive = false
         maximizedTopAnchorConstraint.isActive = true
         maximizedTopAnchorConstraint.constant = 0
-        minimizedTopAnchorConstraint.isActive = false
+        
+        
+        self.bottomAnchorConstraint.constant = 0
+        
         if episode != nil {
              playerDetailsView.episode = episode
         }
        
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
-            
-            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
             self.view.layoutIfNeeded()
+            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
             self.playerDetailsView.maximizedStackView.alpha = 1
             self.playerDetailsView.miniPlayerView.alpha = 0
             
@@ -48,7 +51,9 @@ class MainTabBarController: UITabBarController {
       print("122")
         
         maximizedTopAnchorConstraint.isActive = false
+        bottomAnchorConstraint.constant = view.frame.height
         minimizedTopAnchorConstraint.isActive = true
+        
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             
@@ -63,16 +68,14 @@ class MainTabBarController: UITabBarController {
     //MARK:- Setup Functions
     
     let playerDetailsView = PlayerDetailsView.initFromNib()
+    
     var maximizedTopAnchorConstraint: NSLayoutConstraint!
     var minimizedTopAnchorConstraint: NSLayoutConstraint!
+    var bottomAnchorConstraint: NSLayoutConstraint!
     
     
     
    fileprivate func setupPlayerDetailsView() {
-    
-    
-   
-
     
     view.insertSubview(playerDetailsView, belowSubview: tabBar)
 
@@ -80,18 +83,19 @@ class MainTabBarController: UITabBarController {
     
     playerDetailsView.translatesAutoresizingMaskIntoConstraints = false
     
-    maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
+    maximizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: view.topAnchor, constant:  view.frame.height)
     
     maximizedTopAnchorConstraint.isActive = true
+    
+    bottomAnchorConstraint = playerDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.frame.height)
+     bottomAnchorConstraint.isActive = true
+    
+    
     
     minimizedTopAnchorConstraint = playerDetailsView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
   //  minimizedTopAnchorConstraint.isActive = true
     
     playerDetailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-    
-    playerDetailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    
-    
     playerDetailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     
     

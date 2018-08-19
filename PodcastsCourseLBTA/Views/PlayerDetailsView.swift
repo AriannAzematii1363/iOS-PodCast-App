@@ -67,12 +67,50 @@ class PlayerDetailsView: UIView {
         self.currentTimeSlider.value = Float(percentage)
     }
     
+    
+    var panGesture : UIPanGestureRecognizer!
+    
+    fileprivate func setupGestures() {
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
+        
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        miniPlayerView.addGestureRecognizer(panGesture)
+        
+        maximizedStackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handleDismissalPan)))
+    }
+    
+    
+    @objc func handleDismissalPan(gesture: UIPanGestureRecognizer) {
+        
+        print("MaximiesStackView dismmal")
+        
+        
+        if gesture.state == .changed {
+            let translation = gesture.translation(in: self.superview)
+            maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+           // print(translation.y, velocity)
+        } else if gesture.state == .ended {
+            let translation = gesture.translation(in: self.superview)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.maximizedStackView.transform = .identity
+                if translation.y > 50 {
+                 
+                 UIApplication.mainTabBarController()?.minimizePlayerDetails()
+        
+                }
+                
+            })
+        }
+    
+    }
+    
+    
     override func awakeFromNib() {
         
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapMaximize)))
       super.awakeFromNib()
+        setupGestures()
         
-        observePlayerCurrentTime()
+         observePlayerCurrentTime()
         
         let time = CMTimeMake(1, 3)
        
@@ -83,10 +121,8 @@ class PlayerDetailsView: UIView {
         }
     }
     
-    @objc func handleTapMaximize() {
-        let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
-        mainTabBarController?.maximizePlayerDetails(episode: nil)
-    }
+    
+  
     
     static func initFromNib() -> PlayerDetailsView {
         return Bundle.main.loadNibNamed("PlayerDetailsView", owner: self, options: nil)?.first as! PlayerDetailsView
@@ -110,7 +146,7 @@ class PlayerDetailsView: UIView {
     
     @IBOutlet weak var miniPlayPauseButton: UIButton! {
         didSet {
-            miniPlayPauseButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            miniPlayPauseButton.imageEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
             miniPlayPauseButton.addTarget(self, action: #selector(handlePlayPause), for: .touchUpInside)
         }
     }
@@ -169,6 +205,8 @@ class PlayerDetailsView: UIView {
         
         let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
         mainTabBarController?.minimizePlayerDetails()
+        
+      
     }
     
     
