@@ -224,6 +224,7 @@ class PlayerDetailsView: UIView {
     fileprivate func observeBoundaryTime() {
         let time = CMTimeMake(1, 3)
         
+        
         let times = [ NSValue(time:time)]
         player.addBoundaryTimeObserver(forTimes:  times, queue: .main) {
             [weak self] in

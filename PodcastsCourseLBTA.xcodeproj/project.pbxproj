@@ -31,6 +31,8 @@
 		F0C11B90211F47F900EEF9D4 /* PlayerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C11B8F211F47F900EEF9D4 /* PlayerDetailsView.swift */; };
 		F0C11B92211FAC2E00EEF9D4 /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C11B91211FAC2E00EEF9D4 /* CMTime.swift */; };
 		F0C11B94211FDBAC00EEF9D4 /* PodcastsSearchingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C11B93211FDBAC00EEF9D4 /* PodcastsSearchingView.xib */; };
+		F0F99CD22137668000C41B1F /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F99CD12137668000C41B1F /* FavoritesController.swift */; };
+		F0F99CD42137752C00C41B1F /* FavoritePodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F99CD32137752C00C41B1F /* FavoritePodcastCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,8 @@
 		F0C11B8F211F47F900EEF9D4 /* PlayerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsView.swift; sourceTree = "<group>"; };
 		F0C11B91211FAC2E00EEF9D4 /* CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		F0C11B93211FDBAC00EEF9D4 /* PodcastsSearchingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastsSearchingView.xib; sourceTree = "<group>"; };
+		F0F99CD12137668000C41B1F /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		F0F99CD32137752C00C41B1F /* FavoritePodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePodcastCell.swift; sourceTree = "<group>"; };
 		FE28A3BA55CEFAD1EC228960 /* Pods-PodcastsCourseLBTA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodcastsCourseLBTA.release.xcconfig"; path = "Pods/Target Support Files/Pods-PodcastsCourseLBTA/Pods-PodcastsCourseLBTA.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 			children = (
 				F0C11B7C211E763100EEF9D4 /* EpisodesController.swift */,
 				F0912740211D0AC500327AAA /* PodcastsSearchController.swift */,
+				F0F99CD12137668000C41B1F /* FavoritesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				F0C11B8F211F47F900EEF9D4 /* PlayerDetailsView.swift */,
 				F0C11B93211FDBAC00EEF9D4 /* PodcastsSearchingView.xib */,
 				F001246B2129FE4F00E6553C /* PlayerDetailsView+Gestures.swift */,
+				F0F99CD32137752C00C41B1F /* FavoritePodcastCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,9 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0F99CD42137752C00C41B1F /* FavoritePodcastCell.swift in Sources */,
 				F001246E212A09FE00E6553C /* UIApplication.swift in Sources */,
 				F0C11B8C211F2AD400EEF9D4 /* RSSFeed.swift in Sources */,
 				F0C11B90211F47F900EEF9D4 /* PlayerDetailsView.swift in Sources */,
+				F0F99CD22137668000C41B1F /* FavoritesController.swift in Sources */,
 				F0912741211D0AC500327AAA /* PodcastsSearchController.swift in Sources */,
 				F0C11B8A211F261800EEF9D4 /* String.swift in Sources */,
 				F0C11B92211FAC2E00EEF9D4 /* CMTime.swift in Sources */,
