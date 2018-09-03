@@ -15,6 +15,7 @@ class EpisodeCell: UITableViewCell {
     var episode: Episode! {
         didSet {
             descriptionLabel.text = episode.description
+            titleLabel.text = episode.title
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, yyyy"
             pubDateLabel.text = dateFormatter.string(from: episode.pubDate)
