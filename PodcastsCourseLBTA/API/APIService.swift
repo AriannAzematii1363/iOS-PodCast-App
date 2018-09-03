@@ -10,8 +10,15 @@ import Foundation
 import Alamofire
 import FeedKit
 
+extension Notification.Name {
+    static let downloadProgress = NSNotification.Name("downloadProgress")
+    static let downloadComplete = NSNotification.Name("downloadComplete")
+}
+
 class APIService {
     
+    
+    typealias EpisodeDownloadCompleteTuple = (fileUrl: String, episodeTitle: String)
     
     let baseiTunesSearchURL = "https://itunes.apple.com/search"
     //singleton
@@ -25,11 +32,18 @@ class APIService {
         
         Alamofire.download(episode.streamUrl, to: downloadRequest).downloadProgress { (progress) in
             print(progress.fractionCompleted)
+            // I want to notify DownloadController about my download progress somehow
+            
+            
+            NotificationCenter.default.post(name: .downloadProgress, object: nil, userInfo: ["title": episode.title, "progress": progress.fractionCompleted])
             }.response { (resp) in
                 print(resp.destinationURL?.absoluteString ?? "")
-                
+              
                 //I want to update UserDefaults downloaded episodes with this temp file somehow
                 
+                let episodeDownloadComplete = EpisodeDownloadCompleteTuple(fileUrl:resp.destinationURL?.absoluteString ?? "",episode.title)
+                
+                NotificationCenter.default.post(name: .downloadComplete, object: episodeDownloadComplete, userInfo: nil)
                 
                 var downloadedEpisodes = UserDefaults.standard.downloadedEpisode()
                 
